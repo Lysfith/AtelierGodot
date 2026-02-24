@@ -1,0 +1,119 @@
+[gd_scene load_steps=10 format=3 uid="uid://loc7saui51y1"]
+
+[ext_resource type="Script" uid="uid://d01w0pbiubcbf" path="res://scenes/gamescene/scripts/CharacterAnimationPlayer.cs" id="1_nw4ep"]
+[ext_resource type="Texture2D" uid="uid://dhcfi8q0yilhc" path="res://scenes/gamescene/sprites/character/idle.png" id="1_osmut"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_484xx"]
+
+[sub_resource type="Animation" id="Animation_osmut"]
+resource_name = "idle_up"
+length = 0.6
+loop_mode = 1
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_nw4ep"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_5q0jf"]
+resource_name = "idle_down"
+length = 0.6
+loop_mode = 1
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [26, 27]
+}
+
+[sub_resource type="Animation" id="Animation_jo068"]
+resource_name = "idle_left"
+length = 0.6
+loop_mode = 1
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [13, 14]
+}
+
+[sub_resource type="Animation" id="Animation_v5hfd"]
+resource_name = "idle_right"
+length = 0.6
+loop_mode = 1
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [39, 40]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5q0jf"]
+_data = {
+&"RESET": SubResource("Animation_nw4ep"),
+&"idle_down": SubResource("Animation_5q0jf"),
+&"idle_left": SubResource("Animation_jo068"),
+&"idle_right": SubResource("Animation_v5hfd"),
+&"idle_up": SubResource("Animation_osmut")
+}
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_484xx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." node_paths=PackedStringArray("_animationPlayer")]
+libraries = {
+&"": SubResource("AnimationLibrary_5q0jf")
+}
+script = ExtResource("1_nw4ep")
+_animationPlayer = NodePath(".")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_osmut")
+hframes = 13
+vframes = 4
