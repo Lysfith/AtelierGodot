@@ -1,9 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmdonjduqsh5"]
+[gd_scene load_steps=4 format=3 uid="uid://bmdonjduqsh5"]
 
 [ext_resource type="PackedScene" uid="uid://loc7saui51y1" path="res://scenes/gamescene/prefabs/player.tscn" id="1_468fp"]
+
+[sub_resource type="Gradient" id="Gradient_468fp"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p4yfh"]
+gradient = SubResource("Gradient_468fp")
 
 [node name="GameScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_468fp")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-278, -165)
+scale = Vector2(1, 68.5)
+texture = SubResource("GradientTexture1D_p4yfh")
