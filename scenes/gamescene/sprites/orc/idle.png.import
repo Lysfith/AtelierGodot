@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7wn6rvaob6nm"
-path="res://.godot/imported/1h_halfslash.png-561f2d14a058b5e53d2a5285ecb44e53.ctex"
+uid="uid://c632m4k5t7iug"
+path="res://.godot/imported/idle.png-3433b642f4514c9d34bfa57a3641ed2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/gamescene/sprites/character/1h_halfslash.png"
-dest_files=["res://.godot/imported/1h_halfslash.png-561f2d14a058b5e53d2a5285ecb44e53.ctex"]
+source_file="res://scenes/gamescene/sprites/orc/idle.png"
+dest_files=["res://.godot/imported/idle.png-3433b642f4514c9d34bfa57a3641ed2b.ctex"]
 
 [params]
 

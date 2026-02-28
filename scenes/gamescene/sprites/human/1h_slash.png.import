@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdikme2jb78v3"
-path="res://.godot/imported/1h_slash.png-c5a5eac8c03a63069a0ce38240c25552.ctex"
+path="res://.godot/imported/1h_slash.png-b84ccf0af0831f426c0629b1ffbdf61c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/gamescene/sprites/character/1h_slash.png"
-dest_files=["res://.godot/imported/1h_slash.png-c5a5eac8c03a63069a0ce38240c25552.ctex"]
+source_file="res://scenes/gamescene/sprites/human/1h_slash.png"
+dest_files=["res://.godot/imported/1h_slash.png-b84ccf0af0831f426c0629b1ffbdf61c.ctex"]
 
 [params]
 

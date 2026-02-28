@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhopbscpkbeg3"
-path="res://.godot/imported/jump.png-324990850b902a748e4c7f360cbe329d.ctex"
+uid="uid://k603eigrjmpy"
+path="res://.godot/imported/shoot.png-753e6b4bb8855dbe89d2a6af2933f8dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/gamescene/sprites/character/jump.png"
-dest_files=["res://.godot/imported/jump.png-324990850b902a748e4c7f360cbe329d.ctex"]
+source_file="res://scenes/gamescene/sprites/human/shoot.png"
+dest_files=["res://.godot/imported/shoot.png-753e6b4bb8855dbe89d2a6af2933f8dc.ctex"]
 
 [params]
 

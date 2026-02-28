@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2kdssrdh7wre"
-path="res://.godot/imported/hurt.png-247c828a3f295529d055398758ebc6ef.ctex"
+uid="uid://wprlaff4vyll"
+path="res://.godot/imported/slash.png-dcc4244ff21a671cfb3767167254c36e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/gamescene/sprites/character/hurt.png"
-dest_files=["res://.godot/imported/hurt.png-247c828a3f295529d055398758ebc6ef.ctex"]
+source_file="res://scenes/gamescene/sprites/human/slash.png"
+dest_files=["res://.godot/imported/slash.png-dcc4244ff21a671cfb3767167254c36e.ctex"]
 
 [params]
 

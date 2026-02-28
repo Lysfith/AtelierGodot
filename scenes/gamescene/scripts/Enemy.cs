@@ -1,15 +1,17 @@
 using Godot;
 using System;
 
-public partial class Player : CharacterBody2D
+public partial class Enemy : CharacterBody2D
 {
+	[Export]
+	private CharacterBody2D _target;
 	[Export]
 	private AnimatedSprite2D _animatedSprite2D;
 
 	private Direction _direction = Direction.Down;
 
 	[Export]
-	private float _speed = 30;
+	private float _speed = 20;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -19,8 +21,14 @@ public partial class Player : CharacterBody2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
-		var directionH = Input.GetAxis("move_left", "move_right");
-		var directionV = Input.GetAxis("move_up", "move_down");
+		if(_target == null)
+        {
+            return;
+        }
+
+		var direction = (_target.Position - Position).Normalized();
+		var directionH = direction.X;
+		var directionV = direction.Y;
 
 		bool isMoving = directionH != 0 || directionV != 0;
 		if(Mathf.Abs(directionH) > Mathf.Abs(directionV))
@@ -79,4 +87,9 @@ public partial class Player : CharacterBody2D
 			MoveAndCollide(velocity * _speed * (float)delta);
 		}
 	}
+
+	public void SetTarget(CharacterBody2D target)
+    {
+    	_target = target;   
+    }
 }

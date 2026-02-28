@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8lc68wiotl0f"
-path="res://.godot/imported/climb.png-c5ef8f728d29067ef8c7f27c4ec22018.ctex"
+uid="uid://bado8v6wy0gtp"
+path="res://.godot/imported/hurt.png-5219d3a6286d4c1c7ec678077b1a399e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/gamescene/sprites/character/climb.png"
-dest_files=["res://.godot/imported/climb.png-c5ef8f728d29067ef8c7f27c4ec22018.ctex"]
+source_file="res://scenes/gamescene/sprites/orc/hurt.png"
+dest_files=["res://.godot/imported/hurt.png-5219d3a6286d4c1c7ec678077b1a399e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6v8f0ilhrkrx"
-path="res://.godot/imported/thrust.png-b12d9369f9ee2f241cbb3550b6d8b2d4.ctex"
+uid="uid://bvp4u3hlqij11"
+path="res://.godot/imported/sit.png-0457f617d21af9c8dc71fa80100cb024.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/gamescene/sprites/character/thrust.png"
-dest_files=["res://.godot/imported/thrust.png-b12d9369f9ee2f241cbb3550b6d8b2d4.ctex"]
+source_file="res://scenes/gamescene/sprites/human/sit.png"
+dest_files=["res://.godot/imported/sit.png-0457f617d21af9c8dc71fa80100cb024.ctex"]
 
 [params]
 

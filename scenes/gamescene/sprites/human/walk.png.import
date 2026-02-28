@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvp4u3hlqij11"
-path="res://.godot/imported/sit.png-23f74fa68125c1c6224aea971cc5810e.ctex"
+uid="uid://io0fqxo8bkfp"
+path="res://.godot/imported/walk.png-44667a9459836e1fc24cb4c369de199c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/gamescene/sprites/character/sit.png"
-dest_files=["res://.godot/imported/sit.png-23f74fa68125c1c6224aea971cc5810e.ctex"]
+source_file="res://scenes/gamescene/sprites/human/walk.png"
+dest_files=["res://.godot/imported/walk.png-44667a9459836e1fc24cb4c369de199c.ctex"]
 
 [params]
 

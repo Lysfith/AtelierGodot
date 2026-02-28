@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://35425ty4x3gx"
-path="res://.godot/imported/run.png-1c752444c678315ed6c93345c412ac11.ctex"
+uid="uid://dovi0pfee0sbf"
+path="res://.godot/imported/walk.png-cfed35bb0aef32585f1232718d49582e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/gamescene/sprites/character/run.png"
-dest_files=["res://.godot/imported/run.png-1c752444c678315ed6c93345c412ac11.ctex"]
+source_file="res://scenes/gamescene/sprites/orc/walk.png"
+dest_files=["res://.godot/imported/walk.png-cfed35bb0aef32585f1232718d49582e.ctex"]
 
 [params]
 

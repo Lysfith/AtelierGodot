@@ -1,20 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://loc7saui51y1"]
+[gd_scene format=3 uid="uid://loc7saui51y1"]
 
 [ext_resource type="Script" uid="uid://doirytdo8nlk0" path="res://scenes/gamescene/scripts/Player.cs" id="1_nw4ep"]
 [ext_resource type="SpriteFrames" uid="uid://hc8p8v07dxc2" path="res://scenes/gamescene/animations/player_animations.tres" id="3_5q0jf"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_484xx"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_nw4ep"]
+radius = 12.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_animatedSprite2D")]
+[node name="Player" type="CharacterBody2D" unique_id=1085721737 node_paths=PackedStringArray("_animatedSprite2D")]
 script = ExtResource("1_nw4ep")
 _animatedSprite2D = NodePath("AnimatedSprite2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_484xx")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1821810425]
+y_sort_enabled = true
+shape = SubResource("CircleShape2D_nw4ep")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=315897931]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=38360907]
+position = Vector2(0, -23)
 sprite_frames = ExtResource("3_5q0jf")
 animation = &"walk_up"
 autoplay = "idle_down"

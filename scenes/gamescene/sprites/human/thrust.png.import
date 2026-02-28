@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhcfi8q0yilhc"
-path="res://.godot/imported/idle.png-169f163d67f3f2999c57e87e461f7b78.ctex"
+uid="uid://6v8f0ilhrkrx"
+path="res://.godot/imported/thrust.png-c979b7d94159243f81885ea983638df8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/gamescene/sprites/character/idle.png"
-dest_files=["res://.godot/imported/idle.png-169f163d67f3f2999c57e87e461f7b78.ctex"]
+source_file="res://scenes/gamescene/sprites/human/thrust.png"
+dest_files=["res://.godot/imported/thrust.png-c979b7d94159243f81885ea983638df8.ctex"]
 
 [params]
 

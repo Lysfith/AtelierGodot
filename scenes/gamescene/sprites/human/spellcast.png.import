@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bemn04ryg57w5"
-path="res://.godot/imported/combat.png-0049db355abb075274288104f13cd5b6.ctex"
+uid="uid://cku80jnwi54f2"
+path="res://.godot/imported/spellcast.png-27443bba3d45484efc0cdbadae82bdf3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/gamescene/sprites/character/combat.png"
-dest_files=["res://.godot/imported/combat.png-0049db355abb075274288104f13cd5b6.ctex"]
+source_file="res://scenes/gamescene/sprites/human/spellcast.png"
+dest_files=["res://.godot/imported/spellcast.png-27443bba3d45484efc0cdbadae82bdf3.ctex"]
 
 [params]
 

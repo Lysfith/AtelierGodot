@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1rqr7655ykb0"
-path="res://.godot/imported/watering.png-01d9b468962299978e2ca539c4fb24ea.ctex"
+uid="uid://bemn04ryg57w5"
+path="res://.godot/imported/combat.png-bf24fb10a8d33faa9b1ec92e1c5195b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/gamescene/sprites/character/watering.png"
-dest_files=["res://.godot/imported/watering.png-01d9b468962299978e2ca539c4fb24ea.ctex"]
+source_file="res://scenes/gamescene/sprites/human/combat.png"
+dest_files=["res://.godot/imported/combat.png-bf24fb10a8d33faa9b1ec92e1c5195b8.ctex"]
 
 [params]
 

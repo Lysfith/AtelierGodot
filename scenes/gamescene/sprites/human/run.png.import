@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dikpy24g7qqlj"
-path="res://.godot/imported/emote.png-dc648ea8fbfe6f8b6f1f66a4a254741f.ctex"
+uid="uid://35425ty4x3gx"
+path="res://.godot/imported/run.png-9800358e8072390a56cc2dcbff73eb2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/gamescene/sprites/character/emote.png"
-dest_files=["res://.godot/imported/emote.png-dc648ea8fbfe6f8b6f1f66a4a254741f.ctex"]
+source_file="res://scenes/gamescene/sprites/human/run.png"
+dest_files=["res://.godot/imported/run.png-9800358e8072390a56cc2dcbff73eb2a.ctex"]
 
 [params]
 
