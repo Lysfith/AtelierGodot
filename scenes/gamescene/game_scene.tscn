@@ -3,16 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://loc7saui51y1" path="res://scenes/gamescene/prefabs/player.tscn" id="1_468fp"]
 [ext_resource type="PackedScene" uid="uid://0hhj6muk6hj8" path="res://scenes/gamescene/prefabs/spawner.tscn" id="3_h1fbb"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_468fp"]
-
 [node name="GameScene" type="Node2D" unique_id=744699189]
+y_sort_enabled = true
 
 [node name="Player" parent="." unique_id=2089990529 instance=ExtResource("1_468fp")]
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=928402727]
-position = Vector2(-278, -165)
-scale = Vector2(252, 68.5)
-texture = SubResource("CanvasTexture_468fp")
 
 [node name="Spawner" parent="." unique_id=669287829 node_paths=PackedStringArray("_player") instance=ExtResource("3_h1fbb")]
 _player = NodePath("../Player")

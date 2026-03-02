@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://bpqye01kbsb67"]
+
+[ext_resource type="Script" uid="uid://dgc5xryf5vv85" path="res://scenes/gamescene/scripts/EnemyResource.cs" id="1_rppeb"]
+
+[resource]
+script = ExtResource("1_rppeb")
+Health = 10
+Speed = 20.0
+AttackPower = 5.0
+AnimationPath = "res://scenes/gamescene/animations/orc_animations.tres"
+metadata/_custom_type_script = "uid://dgc5xryf5vv85"

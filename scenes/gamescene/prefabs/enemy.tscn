@@ -3,19 +3,52 @@
 [ext_resource type="Script" uid="uid://cbgw6jk60bf23" path="res://scenes/gamescene/scripts/Enemy.cs" id="1_44wsp"]
 [ext_resource type="SpriteFrames" uid="uid://2iod8kwh6rak" path="res://scenes/gamescene/animations/orc_animations.tres" id="2_mk06x"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mk06x"]
-radius = 13.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mk06x"]
+radius = 14.0
+height = 48.0
 
-[node name="Enemy" type="CharacterBody2D" unique_id=841247841 node_paths=PackedStringArray("_animatedSprite2D")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mk06x"]
+bg_color = Color(0.85490197, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kg4vy"]
+bg_color = Color(0.086904295, 0.49572784, 0, 1)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=841247841 node_paths=PackedStringArray("_animatedSprite2D", "_hitbox", "_healthBar")]
 script = ExtResource("1_44wsp")
 _animatedSprite2D = NodePath("AnimatedSprite2D")
+_hitbox = NodePath("Hitbox")
+_healthBar = NodePath("Health")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=91012546]
 y_sort_enabled = true
-shape = SubResource("CircleShape2D_mk06x")
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_mk06x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=844206024]
-position = Vector2(0, -23)
 sprite_frames = ExtResource("2_mk06x")
 animation = &"walk_up"
 autoplay = "idle_down"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1452619485]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=650160176]
+y_sort_enabled = true
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_mk06x")
+
+[node name="Health" type="ProgressBar" parent="." unique_id=264764982]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -25.0
+offset_right = 14.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_mk06x")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kg4vy")
+value = 100.0
+show_percentage = false

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://cm3hfihwccqc1"]
+
+[ext_resource type="Script" uid="uid://dgc5xryf5vv85" path="res://scenes/gamescene/scripts/EnemyResource.cs" id="1_l1v73"]
+
+[resource]
+script = ExtResource("1_l1v73")
+Health = 20
+Speed = 15.0
+AttackPower = 10.0
+AnimationPath = "res://scenes/gamescene/animations/minotaure_animations.tres"
+metadata/_custom_type_script = "uid://dgc5xryf5vv85"

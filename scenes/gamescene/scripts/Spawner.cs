@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Spawner : Node2D
 {
@@ -18,7 +19,11 @@ public partial class Spawner : Node2D
 	[Export]
 	private Timer _elite;
 
+	[Export]
+	private EnemyResource[] _enemyResources;
+
 	private int _time;
+	private int _enemyResourceIndex = 0;
 
 	private float _spanwDistance = 400;
 
@@ -42,8 +47,10 @@ public partial class Spawner : Node2D
 	private void SpawnEnemy(Vector2 position)
     {
         var enemy = _enemy.Instantiate() as Enemy;
-		enemy.Position = position;
+		var enemyResource = _enemyResources[_enemyResourceIndex];
 		enemy.SetTarget(_player);
+		enemy.SetResource(enemyResource);
+		enemy.Position = position;
 
 		GetTree().CurrentScene.AddChild(enemy);
     }
@@ -51,6 +58,10 @@ public partial class Spawner : Node2D
 	private void OnTimerTimeout()
     {
         _time += 1;
+		if(_time % 10 == 0)
+		{
+			_enemyResourceIndex = (_enemyResourceIndex + 1) % _enemyResources.Length;
+		}
 		UpdateTimerLabel(); 
 		SpawnMultipleEnemies(_time % 10);
     }

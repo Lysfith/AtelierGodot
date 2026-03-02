@@ -7,11 +7,20 @@ public partial class Enemy : CharacterBody2D
 	private CharacterBody2D _target;
 	[Export]
 	private AnimatedSprite2D _animatedSprite2D;
+	[Export]
+	private Area2D _hitbox;
+	[Export]
+	private ProgressBar _healthBar;
+
+	[Export]
+	private EnemyResource _type;
 
 	private Direction _direction = Direction.Down;
 
 	[Export]
 	private float _speed = 20;
+
+	public float Damage => _type.AttackPower;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -19,72 +28,33 @@ public partial class Enemy : CharacterBody2D
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _PhysicsProcess(double delta)
+	public override void _Process(double delta)
 	{
+		var animation = "idle";
+
 		if(_target == null)
         {
+			_animatedSprite2D.Play($"{animation}_down");
             return;
         }
 
 		var direction = (_target.Position - Position).Normalized();
-		var directionH = direction.X;
-		var directionV = direction.Y;
 
-		bool isMoving = directionH != 0 || directionV != 0;
-		if(Mathf.Abs(directionH) > Mathf.Abs(directionV))
-		{
-			if(directionH > 0)
-			{
-				_direction = Direction.Right;
-			}
-			else if(directionH < 0)
-			{
-				_direction = Direction.Left;
-			}
-		}
-		else if(Mathf.Abs(directionH) < Mathf.Abs(directionV))
-		{
-			if(directionV > 0)
-			{
-				_direction = Direction.Down;
-			}
-			else if(directionV < 0)
-			{
-				_direction = Direction.Up;
-			}
-		}
+		bool isMoving = direction != Vector2.Zero;
 
-		Vector2 velocity = Vector2.Zero;
-
-		var animation = "idle";
+		direction = direction.Normalized();
+		
+		
 		if(isMoving)
 		{
 			animation = "walk";
 		}
 
-		switch (_direction)
-		{
-			case Direction.Up:
-				_animatedSprite2D.Play($"{animation}_up");
-				velocity.Y = -1;
-				break;
-			case Direction.Down:
-				_animatedSprite2D.Play($"{animation}_down");
-				velocity.Y = 1;
-				break;
-			case Direction.Left:
-				_animatedSprite2D.Play($"{animation}_left");
-				velocity.X = -1;
-				break;
-			case Direction.Right:
-				_animatedSprite2D.Play($"{animation}_right");
-				velocity.X = 1;
-				break;
-		}
+		_animatedSprite2D.Play($"{animation}_down");
 
 		if(isMoving)
 		{
-			MoveAndCollide(velocity * _speed * (float)delta);
+			Position += direction * _speed * (float)delta;
 		}
 	}
 
@@ -92,4 +62,12 @@ public partial class Enemy : CharacterBody2D
     {
     	_target = target;   
     }
+
+    public void SetResource(EnemyResource type)
+    {
+        _type = type;
+        _speed = type.Speed;
+		_animatedSprite2D.SpriteFrames = ResourceLoader.Load<SpriteFrames>(type.AnimationPath);
+    }
+
 }

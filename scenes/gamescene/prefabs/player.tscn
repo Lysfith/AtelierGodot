@@ -3,23 +3,63 @@
 [ext_resource type="Script" uid="uid://doirytdo8nlk0" path="res://scenes/gamescene/scripts/Player.cs" id="1_nw4ep"]
 [ext_resource type="SpriteFrames" uid="uid://hc8p8v07dxc2" path="res://scenes/gamescene/animations/player_animations.tres" id="3_5q0jf"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nw4ep"]
-radius = 12.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nw4ep"]
+radius = 15.0
+height = 48.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1085721737 node_paths=PackedStringArray("_animatedSprite2D")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nw4ep"]
+bg_color = Color(0.85490197, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5q0jf"]
+bg_color = Color(0.086904295, 0.49572784, 0, 1)
+
+[node name="Player" type="CharacterBody2D" unique_id=1085721737 node_paths=PackedStringArray("_animatedSprite2D", "_hitbox", "_hitboxShape", "_healthBar", "_hitboxTimer")]
 script = ExtResource("1_nw4ep")
 _animatedSprite2D = NodePath("AnimatedSprite2D")
+_hitbox = NodePath("Hitbox")
+_hitboxShape = NodePath("Hitbox/CollisionShape2D")
+_healthBar = NodePath("Health")
+_hitboxTimer = NodePath("Timer")
+_speed = 100.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1821810425]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2023419528]
 y_sort_enabled = true
-shape = SubResource("CircleShape2D_nw4ep")
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_nw4ep")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=315897931]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=38360907]
-position = Vector2(0, -23)
 sprite_frames = ExtResource("3_5q0jf")
 animation = &"walk_up"
 autoplay = "idle_down"
 frame = 1
 frame_progress = 0.7509981
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1272049989]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1821810425]
+y_sort_enabled = true
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_nw4ep")
+
+[node name="Health" type="ProgressBar" parent="." unique_id=527287342]
+z_index = 999
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -31.0
+offset_right = 19.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_nw4ep")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5q0jf")
+value = 100.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="." unique_id=2069820782]
+autostart = true

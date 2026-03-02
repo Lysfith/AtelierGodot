@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://7m6hsbrbga7w" path="res://scenes/gamescene/scripts/Spawner.cs" id="1_dkgkh"]
 [ext_resource type="PackedScene" uid="uid://onu4smbdvuc3" path="res://scenes/gamescene/prefabs/enemy.tscn" id="2_do3ln"]
+[ext_resource type="Resource" uid="uid://bpqye01kbsb67" path="res://scenes/gamescene/resources/enemy_orc.tres" id="3_do3ln"]
+[ext_resource type="Resource" uid="uid://cm3hfihwccqc1" path="res://scenes/gamescene/resources/enemy_minotaure.tres" id="4_7lv8g"]
 
 [node name="Spawner" type="Node2D" unique_id=669287829 node_paths=PackedStringArray("_minutes", "_seconds", "_timer", "_pattern", "_elite")]
 script = ExtResource("1_dkgkh")
@@ -11,6 +13,7 @@ _seconds = NodePath("UI/Timer/Seconds")
 _timer = NodePath("Timer")
 _pattern = NodePath("Pattern")
 _elite = NodePath("Elite")
+_enemyResources = Array[Resource]([ExtResource("3_do3ln"), ExtResource("4_7lv8g")])
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1179799449]
 
