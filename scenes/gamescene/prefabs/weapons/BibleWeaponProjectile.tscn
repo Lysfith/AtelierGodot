@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c83ahmmu0bids"]
+
+[ext_resource type="Script" uid="uid://deoa21sk6nrcd" path="res://scenes/gamescene/scripts/weapons/Projectile.cs" id="1_skerw"]
+[ext_resource type="Texture2D" uid="uid://dpt411a16crpf" path="res://scenes/gamescene/sprites/weapons/bible.png" id="2_mf1fq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mf1fq"]
+radius = 11.045361
+
+[node name="BibleWeaponProjectile" type="Node2D" unique_id=561966583 node_paths=PackedStringArray("Hitbox")]
+script = ExtResource("1_skerw")
+Damage = 5
+Hitbox = NodePath("Area2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1556574707]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_mf1fq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=863515132]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1330303883]
+shape = SubResource("CircleShape2D_mf1fq")

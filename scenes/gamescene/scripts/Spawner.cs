@@ -61,9 +61,11 @@ public partial class Spawner : Node2D
 		if(_time % 10 == 0)
 		{
 			_enemyResourceIndex = (_enemyResourceIndex + 1) % _enemyResources.Length;
+			
 		}
 		UpdateTimerLabel(); 
-		SpawnMultipleEnemies(_time % 10);
+		SpawnMultipleEnemies(_time % 5);
+		
     }
 
 	private Vector2 GetRandomPosition()

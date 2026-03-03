@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections;
 
 public partial class Enemy : CharacterBody2D
 {
@@ -14,6 +15,10 @@ public partial class Enemy : CharacterBody2D
 
 	[Export]
 	private EnemyResource _type;
+
+	[Export]
+	private float _health = 100;
+	private float _healthMax;
 
 	private Direction _direction = Direction.Down;
 
@@ -67,7 +72,21 @@ public partial class Enemy : CharacterBody2D
     {
         _type = type;
         _speed = type.Speed;
+		_health = type.Health;
+		_healthMax = _health;
 		_animatedSprite2D.SpriteFrames = ResourceLoader.Load<SpriteFrames>(type.AnimationPath);
     }
+
+	public void TakeDamage(float damage)
+	{
+		GD.Print($"Enemy took {damage} damage, remaining health: {_health - damage}");
+		_health -= damage;
+		_healthBar.Value = _health / _healthMax * 100f;
+		if(_health <= 0)
+		{
+			//Give xp to player
+			QueueFree();
+		}
+	}
 
 }

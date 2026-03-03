@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ddvhgb2sepx4d"]
+
+[ext_resource type="Script" uid="uid://cv0p33ethf2le" path="res://scenes/gamescene/scripts/weapons/BibleWeapon.cs" id="1_qr0nh"]
+[ext_resource type="PackedScene" uid="uid://c83ahmmu0bids" path="res://scenes/gamescene/prefabs/weapons/BibleWeaponProjectile.tscn" id="2_m3fgy"]
+
+[node name="BibleWeapon" type="Node2D" unique_id=561966583]
+script = ExtResource("1_qr0nh")
+WeaponName = "Bible"
+ProjectileCount = 6
+ProjectilePrefab = ExtResource("2_m3fgy")

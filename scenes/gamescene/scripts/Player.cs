@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Player : CharacterBody2D
 {
@@ -13,6 +14,8 @@ public partial class Player : CharacterBody2D
 	[Export]
 	private ProgressBar _healthBar;
 	[Export]
+	private ProgressBar _xpBar;
+	[Export]
 	private Timer _hitboxTimer;
 
 	private Direction _direction = Direction.Down;
@@ -22,6 +25,9 @@ public partial class Player : CharacterBody2D
 
 	[Export]
 	private float _health = 100;
+
+	[Export]
+	private Node2D[] _weapons;
 
 	private float _healthMax;
 	
@@ -49,7 +55,7 @@ public partial class Player : CharacterBody2D
 	}
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _PhysicsProcess(double delta)
+    public override void _Process(double delta)
 	{
 		var direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
 
