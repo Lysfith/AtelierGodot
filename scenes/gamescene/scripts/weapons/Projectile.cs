@@ -4,29 +4,41 @@ using System.Collections.Generic;
 
 public partial class Projectile : Node2D
 {
-    [Export]
-    public int Damage { get; set; }
 
     [Export]
-    public Area2D Hitbox { get; set; }
+    private Area2D _area;
+    [Export]
+    private VisibleOnScreenNotifier2D _screenNotifier;
 
     [Export]
-    public bool DestroyOnHit { get; set; }
-
+	public Vector2 Direction = Vector2.Right;
+	[Export]
+	public float Speed = 200;
+	[Export]
+	public float Damage = 1;
     public override void _Ready()
     {
-        Hitbox.AreaEntered += OnHitboxAreaEntered;
+        _area.BodyEntered += OnAreaBodyEntered;
+        _screenNotifier.ScreenExited += OnScreenExited;
     }
 
-    private void OnHitboxAreaEntered(Area2D area)
+    public override void _PhysicsProcess(double delta)
     {
-        if(area.GetParent() is Enemy enemy)
-		{
-			enemy.TakeDamage(Damage);
-			if (DestroyOnHit)
-			{
-				QueueFree();
-			}
-		}
+        Position += Direction.Normalized() * Speed * (float)delta;
+    }
+
+    private void OnScreenExited()
+    {
+        QueueFree();
+    }
+
+
+    private void OnAreaBodyEntered(Node2D body)
+    {
+        if(body is Enemy enemy)
+        {
+            enemy.TakeDamage(Damage);
+            QueueFree();
+        }
     }
 }

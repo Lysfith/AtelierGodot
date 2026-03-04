@@ -6,10 +6,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_mf1fq"]
 radius = 11.045361
 
-[node name="BibleWeaponProjectile" type="Node2D" unique_id=561966583 node_paths=PackedStringArray("Hitbox")]
+[node name="BibleWeaponProjectile" type="Node2D" unique_id=561966583 node_paths=PackedStringArray("_area", "_screenNotifier")]
 script = ExtResource("1_skerw")
+_area = NodePath("Area2D")
+_screenNotifier = NodePath("Area2D/VisibleOnScreenNotifier2D")
 Damage = 5
-Hitbox = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1556574707]
 scale = Vector2(0.25, 0.25)
@@ -19,3 +20,5 @@ texture = ExtResource("2_mf1fq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1330303883]
 shape = SubResource("CircleShape2D_mf1fq")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Area2D" unique_id=1225454175]

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public partial class Spawner : Node2D
 {
 	[Export]
-	private CharacterBody2D _player;
+	private Player _player;
 	[Export]
 	private PackedScene _enemy;
 	[Export]
@@ -64,7 +64,7 @@ public partial class Spawner : Node2D
 			
 		}
 		UpdateTimerLabel(); 
-		SpawnMultipleEnemies(_time % 5);
+		SpawnMultipleEnemies(_time % 10);
 		
     }
 

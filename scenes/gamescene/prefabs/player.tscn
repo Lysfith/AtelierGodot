@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://doirytdo8nlk0" path="res://scenes/gamescene/scripts/Player.cs" id="1_nw4ep"]
 [ext_resource type="SpriteFrames" uid="uid://hc8p8v07dxc2" path="res://scenes/gamescene/animations/player_animations.tres" id="3_5q0jf"]
-[ext_resource type="PackedScene" uid="uid://ddvhgb2sepx4d" path="res://scenes/gamescene/prefabs/weapons/BibleWeapon.tscn" id="3_jo068"]
+[ext_resource type="PackedScene" uid="uid://b37otjenext6v" path="res://scenes/gamescene/prefabs/weapons/slot.tscn" id="3_jo068"]
+[ext_resource type="Resource" uid="uid://dtsuit386klpx" path="res://scenes/gamescene/resources/weapons/magic_wand.tres" id="4_jo068"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nw4ep"]
 radius = 15.0
@@ -20,7 +21,7 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hgrq"]
 bg_color = Color(0.056733474, 0.41477165, 0.714498, 1)
 
-[node name="Player" type="CharacterBody2D" unique_id=1085721737 node_paths=PackedStringArray("_animatedSprite2D", "_hitbox", "_hitboxShape", "_healthBar", "_xpBar", "_hitboxTimer", "_weapons")]
+[node name="Player" type="CharacterBody2D" unique_id=1085721737 node_paths=PackedStringArray("_animatedSprite2D", "_hitbox", "_hitboxShape", "_healthBar", "_xpBar", "_hitboxTimer")]
 script = ExtResource("1_nw4ep")
 _animatedSprite2D = NodePath("AnimatedSprite2D")
 _hitbox = NodePath("Hitbox")
@@ -29,7 +30,6 @@ _healthBar = NodePath("Health")
 _xpBar = NodePath("UI/XP")
 _hitboxTimer = NodePath("Timer")
 _speed = 100.0
-_weapons = [NodePath("Weapons/BibleWeapon")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2023419528]
 y_sort_enabled = true
@@ -37,6 +37,7 @@ position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_nw4ep")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=315897931]
+position = Vector2(0, -1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=38360907]
 sprite_frames = ExtResource("3_5q0jf")
@@ -73,10 +74,6 @@ show_percentage = false
 [node name="Timer" type="Timer" parent="." unique_id=2069820782]
 autostart = true
 
-[node name="Weapons" type="Node2D" parent="." unique_id=2012652629]
-
-[node name="BibleWeapon" parent="Weapons" unique_id=561966583 instance=ExtResource("3_jo068")]
-
 [node name="UI" type="CanvasLayer" parent="." unique_id=2013619822]
 
 [node name="XP" type="ProgressBar" parent="UI" unique_id=2125865483]
@@ -88,3 +85,18 @@ grow_horizontal = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_5q0jf")
 theme_override_styles/fill = SubResource("StyleBoxFlat_3hgrq")
 show_percentage = false
+
+[node name="Weapons" type="HBoxContainer" parent="UI" unique_id=1975663484]
+offset_top = 15.0
+offset_right = 128.0
+offset_bottom = 55.0
+
+[node name="Slot" parent="UI/Weapons" unique_id=1597776413 instance=ExtResource("3_jo068")]
+layout_mode = 2
+_weapon = ExtResource("4_jo068")
+
+[node name="Slot2" parent="UI/Weapons" unique_id=1899010149 instance=ExtResource("3_jo068")]
+layout_mode = 2
+
+[node name="Slot3" parent="UI/Weapons" unique_id=1494512665 instance=ExtResource("3_jo068")]
+layout_mode = 2

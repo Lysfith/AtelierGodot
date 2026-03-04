@@ -27,9 +27,17 @@ public partial class Player : CharacterBody2D
 	private float _health = 100;
 
 	[Export]
-	private Node2D[] _weapons;
+	private float _xp = 0;
+
+	[Export]
+	private float _level = 0;
 
 	private float _healthMax;
+
+	private CharacterBody2D _nearestEnemy;
+	private float _nearestEnemyDistance = float.MaxValue;
+	public float NearestEnemyDistance => _nearestEnemyDistance;
+	public CharacterBody2D NearestEnemy => _nearestEnemy;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -77,7 +85,25 @@ public partial class Player : CharacterBody2D
 		}
 	}
 
-	private void TakeDamage(float damage)
+	public override void _PhysicsProcess(double delta)
+	{
+		if(_nearestEnemy != null && IsInstanceValid(_nearestEnemy))
+		{
+			_nearestEnemyDistance = Position.DistanceTo(_nearestEnemy.Position);
+		}
+		else
+		{
+			_nearestEnemyDistance = float.MaxValue;
+		}
+	}
+
+	public void SetNearestEnemy(CharacterBody2D enemy, float distance)
+	{
+		_nearestEnemy = enemy;
+		_nearestEnemyDistance = distance;
+	}
+
+	public void TakeDamage(float damage)
 	{
 		_health -= damage;
 		_healthBar.Value = _health / _healthMax * 100f;

@@ -5,7 +5,7 @@ using System.Collections;
 public partial class Enemy : CharacterBody2D
 {
 	[Export]
-	private CharacterBody2D _target;
+	private Player _target;
 	[Export]
 	private AnimatedSprite2D _animatedSprite2D;
 	[Export]
@@ -63,7 +63,12 @@ public partial class Enemy : CharacterBody2D
 		}
 	}
 
-	public void SetTarget(CharacterBody2D target)
+	public override void _PhysicsProcess(double delta)
+	{
+		 CheckSeparation();
+	}
+
+	public void SetTarget(Player target)
     {
     	_target = target;   
     }
@@ -86,6 +91,22 @@ public partial class Enemy : CharacterBody2D
 		{
 			//Give xp to player
 			QueueFree();
+		}
+	}
+
+	private void CheckSeparation()
+	{
+		if(_target == null) return;
+
+		var distance = Position.DistanceTo(_target.Position);
+		if(distance > 500)
+		{
+			QueueFree();
+		}
+
+		if(distance < _target.NearestEnemyDistance)
+		{
+			_target.SetNearestEnemy(this, distance);
 		}
 	}
 
