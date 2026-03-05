@@ -25,6 +25,9 @@ public partial class Enemy : CharacterBody2D
 	[Export]
 	private float _speed = 20;
 
+	[Export]
+	private PackedScene _damageLabel;
+
 	public float Damage => _type.AttackPower;
 	
 	// Called when the node enters the scene tree for the first time.
@@ -87,6 +90,7 @@ public partial class Enemy : CharacterBody2D
 		GD.Print($"Enemy took {damage} damage, remaining health: {_health - damage}");
 		_health -= damage;
 		_healthBar.Value = _health / _healthMax * 100f;
+		ShowDamage(damage);
 		if(_health <= 0)
 		{
 			//Give xp to player
@@ -108,6 +112,14 @@ public partial class Enemy : CharacterBody2D
 		{
 			_target.SetNearestEnemy(this, distance);
 		}
+	}
+
+	private void ShowDamage(float damage)
+	{
+		var damageLabel = _damageLabel.Instantiate() as Damage;
+		damageLabel.Text = damage.ToString();
+		damageLabel.Position = Position + new Vector2(-50, -25);
+		GetTree().CurrentScene.AddChild(damageLabel);
 	}
 
 }

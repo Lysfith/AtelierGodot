@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://onu4smbdvuc3"]
 
 [ext_resource type="Script" uid="uid://cbgw6jk60bf23" path="res://scenes/gamescene/scripts/Enemy.cs" id="1_44wsp"]
+[ext_resource type="PackedScene" uid="uid://bb2271uqbwsr2" path="res://scenes/gamescene/prefabs/damage.tscn" id="2_kg4vy"]
 [ext_resource type="SpriteFrames" uid="uid://2iod8kwh6rak" path="res://scenes/gamescene/animations/orc_animations.tres" id="2_mk06x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mk06x"]
@@ -18,6 +19,7 @@ script = ExtResource("1_44wsp")
 _animatedSprite2D = NodePath("AnimatedSprite2D")
 _hitbox = NodePath("Hitbox")
 _healthBar = NodePath("Health")
+_damageLabel = ExtResource("2_kg4vy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=91012546]
 y_sort_enabled = true
